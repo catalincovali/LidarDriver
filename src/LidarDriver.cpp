@@ -8,7 +8,7 @@
 
 
 
-//new_size()
+//new_scan()
 
 
 
