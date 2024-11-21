@@ -11,6 +11,7 @@ private:
 
 public:
 
+  std::vector<double> get_scan() const;
 
 
 };

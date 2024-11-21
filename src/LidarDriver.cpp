@@ -14,8 +14,9 @@
 
 
 //get_scan()
-
-
+std::vector<double> LidarDriver::get_scan() const{
+  return std::vector<double>();
+}
 
 
 //clear_buffer()
