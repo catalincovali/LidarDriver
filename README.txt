@@ -1,12 +1,16 @@
-###Progetto di intermedia Programmazione - LidarDriver###
+Progetto di intermedia Programmazione - LidarDriver
 
 
-#Bortolazzi#
+Bortolazzi
+  -
+  -
 
 
+Covali
+  -
+  -
 
-#Covali#
 
-
-
-#Gavrilovska#
+Gavrilovska
+  -
+  -
