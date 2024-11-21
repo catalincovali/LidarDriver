@@ -1,6 +1,6 @@
-#inlcude <iostream>
-#inlcude <ostream>
-#inlcude "LidarDrvier.h"
+#include <iostream>
+#include <ostream>
+#include "LidarDrvier.h"
 
 
 //constructr()
