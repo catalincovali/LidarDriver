@@ -1,4 +1,4 @@
-Progetto di intermedia Programmazione - LidarDriver
+Progetto intermedia di Programmazione - LidarDriver
 
 
 Bortolazzi
