@@ -1,10 +1,10 @@
-#ifndef LIVERDRIVER_H
-#define LIVERDRIVER_H
+#ifndef LIDARDRIVER_H
+#define LIDARDRIVER_H
 #include <iostream>
 #include <ostream>
 #include <vector>
 
-class LiderDriver {
+class LidarDriver {
 private:
 
 
