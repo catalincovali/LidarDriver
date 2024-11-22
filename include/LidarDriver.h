@@ -11,8 +11,8 @@ private:
 
 public:
 
-  std::vector<double> get_scan() const;
-
+  std::vector<double> get_scan(); 
+  void clear_buffer();
 
 };
 
