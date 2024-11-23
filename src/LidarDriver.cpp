@@ -16,7 +16,7 @@
 //get_scan()
 std::vector<double> LidarDriver::get_scan() {
   std::vector<double> d(size, 0.0);                 //size to be defind
-  if (first == last)  return std::vector<double> d; //if buffer empty
+  if (first == last)  return std::vector<double> d; 
   std::swap(v[first], d);                           //v and firs to be defind
   if (first == DIM_BUFFER - 1)  first = 0;          //DIM_BUFFER to be defind
   else  first++;
@@ -30,9 +30,9 @@ void LidarDriver::clear_buffer() {
     LidarDriver::clear(first, last);
   }else{
     LidarDriver::clear(0, last);
-    LidarDriver::clear(first, size);              //szie to be difend
+    LidarDriver::clear(first, size);              //size to be defind
   }
-  first = last;   //set empty buffe state
+  first = last;   //set empty buffer state
 }
 
 void LidarDriver::clear(int from, int to) {
