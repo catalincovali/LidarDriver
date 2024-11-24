@@ -29,7 +29,6 @@
 
 //get_distance()
 
-}
 
 
 
