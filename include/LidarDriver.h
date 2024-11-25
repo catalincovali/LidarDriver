@@ -10,11 +10,21 @@ private:
 
 
 public:
+std::vector<std::vector<double>> buffer_;     //creo il buffer di double 
+
+const int buffer_dim_=10;
+
+const int numero_letture_=static_cast<int>(std::round((angolo_max_ / risoluzione_angolo_)); 
+//deve essere un numero intero ( const perche così verrà letto in lettura e non compilazione )
+
+double risoluzione_angolo_ ;    // non so se mettere const double risoluzione_angolo_
+
+const int angolo_max_=180;
 
 
 
 };
 
-
+#endif
 
 #endif
