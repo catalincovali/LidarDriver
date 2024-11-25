@@ -31,8 +31,6 @@ double risoluzione_angolo_ ;    // non so se mettere const double risoluzione_an
 
 const int angolo_max_=180;
 
-std::vector<double> first_scan_(numero_letture_);
-std::vector<double> last_scan_(numero_letture_);
 
 };
 
