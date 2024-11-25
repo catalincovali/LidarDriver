@@ -8,12 +8,12 @@ class LidarDriver {
 private:
 
 
-
+  void clear(int from, int to);
 public:
 
   std::vector<double> get_scan(); 
   void clear_buffer();
-  void clear(int from, int to);
+
 
 };
 
