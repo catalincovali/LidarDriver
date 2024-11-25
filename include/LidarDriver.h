@@ -5,11 +5,21 @@
 #include <vector>
 #include <stdexception>
 class LidarDriver {
-private:
-
-
-
 public:
+
+//costruttore
+LidarDriver();
+
+
+//set risoluzione angolo
+void set_risoluzione_angolo(double r);
+
+
+//newscan
+void new_scan(std::vector<double> ns);
+
+
+private:
 std::vector<std::vector<double>> buffer_;     //creo il buffer di double 
 
 const int buffer_dim_=10;
@@ -21,7 +31,8 @@ double risoluzione_angolo_ ;    // non so se mettere const double risoluzione_an
 
 const int angolo_max_=180;
 
-
+std::vector<double> first_scan_(numero_letture_);
+std::vector<double> last_scan_(numero_letture_);
 
 };
 
