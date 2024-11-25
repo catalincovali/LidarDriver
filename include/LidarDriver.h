@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
-
+#include <stdexception>
 class LidarDriver {
 private:
 
