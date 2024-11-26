@@ -8,7 +8,8 @@
 di default che verra poi cambiata dal setter della risoluzione angolo, cambiando
 automaticamente anche il buffer */
 LidarDriver::LidarDriver() : risoluzione_angolo_(1.0), numero_letture_(static_cast<int>(std::round(angolo_max_ / 
-risoluzione_angolo_))), buffer_(BUFFER_DIM_, std::vector<double>(numero_letture_)), first(0), last(0) {}//inizializzo anche fist e last a 0
+risoluzione_angolo_))), buffer_(BUFFER_DIM_, std::vector<double>(numero_letture_)), first(0), last(0) {}
+//inizializzo anche fist e last a 0
 
 
 
