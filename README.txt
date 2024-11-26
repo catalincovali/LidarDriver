@@ -1,17 +1,17 @@
-###Progetto intermedia di Programmazione - LidarDriver###
+Progetto intermedia di Programmazione - LidarDriver
 
 
-##Bortolazzi##
+Bortolazzi
   -
   -
 
 
-##Covali##
-  - Implementazione della funzione 'get_scan'
-  - Implementazione della funzione 'clear_buffer'
-  - Implementazione della Helper Function 'clear' utilizzata in 'clear buffer'
+Covali
+  - Implementazione della funzione `get_scan`
+  - Implementazione della funzione `clear_buffer`
+  - Implementazione della Helper Function `clear` utilizzata in `clear buffer`
 
 
-##Gavrilovska##
+Gavrilovska
   -
   -
