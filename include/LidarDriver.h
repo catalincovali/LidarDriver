@@ -13,8 +13,8 @@ private:
   const double ANG_MAX= 180;
   const double DEF_angRes = 0.5;      //dafult value of angRes
   
-  int first = 0;                //first scan
-  int last = 1;                 //last empty space (last scan = last-1)
+  int first;                //first scan
+  int last;                 //last empty space (last scan = last-1)
   double angRes;                //defined by user
   int scanSize;
 
