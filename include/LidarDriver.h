@@ -3,7 +3,8 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
-#include <stdexception>
+#include <cmath>
+#include <stdexcept>
 class LidarDriver {
 public:
 
@@ -18,16 +19,29 @@ void set_risoluzione_angolo(double r);
 //newscan
 void new_scan(std::vector<double> ns);
 
+//funzione che userò nel setter
+void scrivi_buffer(std::vector<double> sb);
+
 
 private:
-std::vector<std::vector<double>> buffer_;     //creo il buffer di double 
+//creo il buffer
+std::vector<std::vector<double>> buffer_; 
 
-const int buffer_dim_=10;
+const int BUFFER_DIM_=10;
 
-const int numero_letture_=static_cast<int>(std::round((angolo_max_ / risoluzione_angolo_)); 
+/*
+numero letture mi indica il numero di letture dopo aver dato un angolo
+utilizzo la funzione round per avere un numero intero come dimensione del 
+vettore
+*/
+static constexpr int 
+numero_letture_=static_cast<int>(std::round((angolo_max_ 
+/ risoluzione_angolo_)); 
 //deve essere un numero intero ( const perche così verrà letto in lettura e non compilazione )
 
-double risoluzione_angolo_ ;    // non so se mettere const double risoluzione_angolo_
+//risoluzione angolo che verrà inizializzata successivamente dalla 
+funzione setter
+static constexpr double risoluzione_angolo_ ;
 
 const int angolo_max_=180;
 
