@@ -34,20 +34,15 @@ numero letture mi indica il numero di letture dopo aver dato un angolo
 utilizzo la funzione round per avere un numero intero come dimensione del 
 vettore
 */
-static constexpr int 
-numero_letture_=static_cast<int>(std::round((angolo_max_ 
-/ risoluzione_angolo_)); 
+static int numero_letture_; 
 //deve essere un numero intero ( const perche così verrà letto in lettura e non compilazione )
 
 //risoluzione angolo che verrà inizializzata successivamente dalla 
 funzione setter
-static constexpr double risoluzione_angolo_ ;
+static  double risoluzione_angolo_ ;
 
-const int angolo_max_=180;
+static constexpr int angolo_max_=180;
 
 
 };
-
-#endif
-
 #endif
