@@ -1,12 +1,33 @@
 #include <iostream>
 #include <ostream>
+#include <stdexcept> //for std::out_of_range
+#include <vector>
 #include "LidarDriver.h"
 
 
-//constructr()
+//constructor()
+LidarDriver::LidarDriver()
+  : angRes{DEF_angRes},
+    v (DIM_BUFFER, std::vector<double>(static_cast<int>(ANG_MAX / angRes) + 1, 0.0 ))
+{
+  scanSize = static_cast<int>(ANG_MAX/angRes)+1;
+  first = 0;                
+  last = 0;                 
+}
 
+//constructor(angRes)
+LidarDriver::LidarDriver(double arg) {
+  if (arg < 0.1 || arg > 1.0)
+    throw std::out_of_range("out of range");
 
-
+  first = 0;                
+  last = 0;                 
+  angRes = arg;
+  scanSize = static_cast<int>(ANG_MAX/angRes)+1;
+  
+  //initialize buffer
+  v = std::vector<std::vector<double>>(DIM_BUFFER, std::vector<double>(scanSize, 0.0));
+}
 
 //new_scan()
 
@@ -15,12 +36,14 @@
 
 //get_scan()
 std::vector<double> LidarDriver::get_scan() {
-  std::vector<double> d(size, 0.0);                 //size to be defind
-  if (first == last)  return std::vector<double> d; 
+  std::vector<double> d(scanSize, 0.0);             //size = static_cast<int>(angMax/angRes)+1
+  if (first == last)  return d; 
   std::swap(v[first], d);                           //v and firs to be defind
+
   if (first == DIM_BUFFER - 1)  first = 0;          //DIM_BUFFER to be defind
   else  first++;
-  return std::vector<double> d;
+
+  return d;
 }
 
 //clear_buffer()
@@ -30,13 +53,13 @@ void LidarDriver::clear_buffer() {
     LidarDriver::clear(first, last);
   }else{
     LidarDriver::clear(0, last);
-    LidarDriver::clear(first, size);              //size to be defind
+    LidarDriver::clear(first, scanSize);              //size to be defind
   }
   first = last;   //set empty buffer state
 }
 
 void LidarDriver::clear(int from, int to) {
-  for(int i = from, i<to, i++)
+  for(int i = from; i<to; i++)
       std::fill(v[i].begin(), v[i].end(), 0.0);
 }
 
