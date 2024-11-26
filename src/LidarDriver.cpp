@@ -6,28 +6,14 @@
 
 
 //constructor()
-LidarDriver::LidarDriver()
-  : angRes{DEF_angRes},
-    v (DIM_BUFFER, std::vector<double>(static_cast<int>(ANG_MAX / angRes) + 1, 0.0 ))
-{
-  scanSize = static_cast<int>(ANG_MAX/angRes)+1;
-  first = 0;                
-  last = 0;                 
-}
+
+
+
 
 //constructor(angRes)
-LidarDriver::LidarDriver(double arg) {
-  if (arg < 0.1 || arg > 1.0)
-    throw std::out_of_range("out of range");
 
-  first = 0;                
-  last = 0;                 
-  angRes = arg;
-  scanSize = static_cast<int>(ANG_MAX/angRes)+1;
-  
-  //initialize buffer
-  v = std::vector<std::vector<double>>(DIM_BUFFER, std::vector<double>(scanSize, 0.0));
-}
+
+
 
 //new_scan()
 
