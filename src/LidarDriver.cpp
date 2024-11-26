@@ -43,12 +43,19 @@ double LidarDriver::get_distance(double angle){
 
 
 //operator<<
-std::ostream& operator<<(std::ostream& os, std::vector<std::vector<double>> v){
+std::ostream& operator<<(std::ostream& os, std::vector<std::vector<double>>& v){
 	os << "[";
 	for(int i=0; i < v.size(); i++){
-		os << v[i];
+		os << v.at(v.get_last()).at(i);
 		if(i != v.size()-1) os << ", ";		
 	}
 	os << "]";
 	return os;
 }
+
+
+//get_last()
+int LidarDriver::get_last(){
+	return last;
+}
+
