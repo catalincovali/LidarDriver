@@ -1,6 +1,5 @@
 #include <iostream>
 #include <ostream>
-#include <stdexcept> //for std::out_of_range
 #include <vector>
 #include "LidarDriver.h"
 
@@ -22,34 +21,31 @@
 
 //get_scan()
 std::vector<double> LidarDriver::get_scan() {
-  std::vector<double> d(scanSize, 0.0);
-  if (first == last)  return d; 
-  std::swap(v[first], d);
+  if (isEmpty)  return std::vector<double> d(scanSize, 0.0);
+  
+  if (first == DIM_BUFFER - 1) {
+    first = 0;
+    return v[DIM_BUFFER - 1];
+  }
+  
+  first++;
 
-  if (first == DIM_BUFFER - 1)  first = 0;
-  else  first++;
+  if (first == last) { 
+    isEmpty = true;
+    first = -1;
+    last = 0;
+  }
 
-  return d;
+  return v[first - 1];
 }
 
 //clear_buffer()
 void LidarDriver::clear_buffer() {
-  if (first == last)  return;   //buffer already empty
-  if (first < last) {
-    LidarDriver::clear(first, last);
-  }else{
-    LidarDriver::clear(0, last);
-    LidarDriver::clear(first, scanSize);
-  }
-  first = last;   //set empty buffer state
+  if (isEmpty)  return;   
+  isEmpty = true;
+  first = -1;
+  last = 0;
 }
-
-void LidarDriver::clear(int from, int to) {
-  for(int i = from; i<to; i++)
-      std::fill(v[i].begin(), v[i].end(), 0.0);
-}
-
-
 
 //get_distance()
 

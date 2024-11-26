@@ -8,13 +8,8 @@
 class LidarDriver {
 private:
 
-  //Helper Function clear()
-  void clear(int from, int to);
 
 public:
-
-
-
 
 
   //get_scan()
