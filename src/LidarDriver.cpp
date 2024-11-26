@@ -21,7 +21,7 @@ void LidarDriver:: set_risoluzione_angolo(double r){
         
         //calcolo anche il numero di letture
         numero_letture_ = static_cast<int>(std::round(angolo_max_ / 
-risoluzione_angolo_));
+risoluzione_angolo_))+1;
       }
       else {
       throw std::out_of_range(" la risoluzione dell'angolo non è valida")
