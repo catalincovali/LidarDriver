@@ -146,7 +146,7 @@ double LidarDriver::get_distance(double angle){
 //operator<<
 std::ostream& operator<<(std::ostream& os, LidarDriver& v){
 	os << "[";
-	std::vector<double> myVec = v.get_last(); 
+	std::vector<double> myVec = v.get_last();
 	for(int i=0; i < myVec.size(); i++){
 		os << myVec.at(i);
 		if(i != myVec.size()-1) os << ", ";		
