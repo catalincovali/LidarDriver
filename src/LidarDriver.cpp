@@ -4,29 +4,40 @@
 
 
 //construct()
-/*creo un buffer con dimensione predefinita e con risoluzione_angolo_ con valore 
-di default che verra poi cambiata dal setter della risoluzione angolo, cambiando
-automaticamente anche il buffer */
-LidarDriver::LidarDriver() : risoluzione_angolo_(1.0), numero_letture_(static_cast<int>(std::round(angolo_max_ / 
-risoluzione_angolo_))), buffer_(BUFFER_DIM_, std::vector<double>(numero_letture_)), first(0), last(0) {}
-//inizializzo anche fist e last a 0
-
-
-
-/*controllo che la grandezza dell'angolo inserito sia adeguata
-in caso non lo sia lancio l'eccezione out_of_range*/ 
-void LidarDriver:: set_risoluzione_angolo(double r){
-      if ( r>0 && r<1) {
-        risoluzione_angolo_ = r;
-        
-        //calcolo anche il numero di letture
-        numero_letture_ = static_cast<int>(std::round(angolo_max_ / 
+//costruttore con angolo inserito dal main
+LidarDriver::LidarDriver(double a)
+    :risoluzione_angolo_{a},
+      numero_letture_(static_cast<int>(std::round(ANGOLO_MAX_ / 
+risoluzione_angolo_))),
+      buffer_(BUFFER_DIM_, std::vector<double>(numero_letture_)), // 
+Inizializza il buffer
+      first(-1), last(0) 
+      {
+      isEmpty=true;
+      if(a<0 || a>1)
+      {
+      throw std::out_of_range(" la risoluzione dell'angolo non è valida");
+      }
+      
+      numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / 
 risoluzione_angolo_))+1;
+      
       }
-      else {
-      throw std::out_of_range(" la risoluzione dell'angolo non è valida")
+
+
+
+//costruttore di default
+LidarDriver::LidarDriver()
+    : risoluzione_angolo_(DEF_ANG_),  // Imposta un valore predefinito
+      numero_letture_(static_cast<int>(std::round(ANGOLO_MAX_ / 
+risoluzione_angolo_))),
+      buffer_(BUFFER_DIM_, std::vector<double>(numero_letture_)), // 
+Inizializza il buffer
+      first(-1), last(0) 
+      {
+       numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / 
+risoluzione_angolo_));
       }
-}
 
 
 
@@ -69,30 +80,30 @@ void LidarDriver:: scrivi_buffer(std::vector<double> sb){
 
 //funzione new scan
 void LidarDriver::new_scan ( std::vector<double> ns) {
-   
-   if(last != 10 && last >=first)   //primo if che mi serve per scrivere 
-                                    //i primi 10 scan
-    {
-     scrivi_buffer(ns);  //utilizzo la funzione scrivi buffer per inserire 
-                        //i valori del vettore ns nel buffer in posizione 
-     last ++;           //incremento last
-    }
     
-    else if ( (last=10 || last<first) && first !=10)  //secondo if che mi gestisce quando 
-                                             //last arriva a 10 e deve sovrascrivere first
-    {
-     scrivi_buffer(ns);
-     last=first;
-     first++;
-    }
-    
-    else    // quando first raggiunge la posizione 10 e deve ritornare
-            // alla posizione 0 così last diventa nuovamente la posizione 10
-    { 
+  //******************************************se il buffer è vuoto o last 
+coincide con first
+   if(isEmpty || last==first)
+   {
       scrivi_buffer(ns);
-      first=0;
       last++;
-    }
+      first++;
+      if(last==BUFFER_DIM_){ 
+      last=0; 
+      first=0;
+      }
+      
+   }
+  //******************************************quando il buffer non è vuoto   
+   else
+   {
+       scrivi_buffer(ns);
+       last++;
+       if(last==BUFFER_DIM_){
+         last=0;
+       }
+   }
+    
  }
    
 
