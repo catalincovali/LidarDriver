@@ -20,7 +20,7 @@ private:
   double risoluzione_angolo_;
   bool isEmpty;
 
-  //Helper Function scrivi_buffer()
+  //Function scrivi_buffer()
   void scrivi_buffer(std::vector<double> sb);
 
 public:
@@ -36,7 +36,7 @@ public:
   void clear_buffer();
   //get_distance()
   double get_distance(double angle);
-  //Helper Function get_last()
+  //Function get_last(), ritorna l'ultima scansione inserita
   std::vector<double> get_last(void) {return buffer_.at(last-1);}
 };
 
