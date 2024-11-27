@@ -83,6 +83,6 @@ void printGetScan( std::vector<double> v ){
 std::vector<double> generateNumbers (int size, int value) {
   std::vector<double> v(size);
   for (int i=0; i<size; i++)
-    v.at(value);
+    v.at(i)=value;
   return v;
 }
