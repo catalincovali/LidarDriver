@@ -3,11 +3,11 @@
 #include <vector>
 #include <random>
 
-std::vector<double>& generateNumbers (int size);
+std::vector<double> generateNumbers (int size, int value);
 void printGetScan( std::vector<double> v );
 
 int main() {
-  
+/*
   LidarDriver driver1();
   LidarDriver driver2(0.2);
 
@@ -69,7 +69,7 @@ int main() {
 
   std::cout << "lettura: " << driver2 << "\n";
 
-
+*/
   return 0;
 }
 
@@ -84,5 +84,5 @@ std::vector<double> generateNumbers (int size, int value) {
   std::vector<double> v(size);
   for (int i=0; i<size; i++)
     v.push_back(value);
-  retunr v;
+  return v;
 }

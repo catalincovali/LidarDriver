@@ -7,10 +7,24 @@
 
 class LidarDriver {
 private:
+  std::vector<std::vector<double>> buffer_;
+  int first;
+  int last;
 
+  const int BUFFER_DIM_=4;
+  const double DEF_ANG_=1.0;
+  const int ANGOLO_MAX_ = 180;
+
+  int numero_letture_;
+  double risoluzione_angolo_;
+  bool isEmpty;
 
 public:
-
+  LidarDriver();
+  LidarDriver(double a);
+  
+  void new_scan(std::vector<double> ns);
+  void scrivi_buffer(std::vector<double> sb);
 
   //get_scan()
   std::vector<double> get_scan(); 
