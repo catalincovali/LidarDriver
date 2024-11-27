@@ -2,6 +2,7 @@
 #define LIDARDRIVER_H
 #include <iostream>
 #include <ostream>
+#include <cmath>
 #include <stdexcept> //for std::out_of_range
 #include <vector>
 
