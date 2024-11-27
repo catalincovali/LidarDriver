@@ -9,16 +9,16 @@
 class LidarDriver {
 private:
   std::vector<std::vector<double>> buffer_;
-  int first;  //first = -1 when isEmpty
-  int last;   //last refers to first empty space
+  int first;                    //first = -1 when isEmpty
+  int last;                     //last refers to first empty space
 
   const int BUFFER_DIM_= 4;     //max scansioni
   const double DEF_ANG_= 1.0;   //risoluzione_angolare_ di default
-  const int ANGOLO_MAX_ = 180;  
+  const int ANGOLO_MAX_ = 180;  //angolo massimo di lettura
 
-  int numero_letture_;
+  int numero_letture_;          //scan size
   double risoluzione_angolo_;
-  bool isEmpty;
+  bool isEmpty;                 //notify if buffer is empty
 
   //Function scrivi_buffer()
   void scrivi_buffer(std::vector<double> sb);
