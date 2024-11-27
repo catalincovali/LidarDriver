@@ -3,7 +3,7 @@ Progetto intermedia di Programmazione - LidarDriver
 
 Bortolazzi Luca
   - Implementazione della funzione `get_distance`
-  - Implementazione dell'overload dell' operatore `<<`
+  - Overload dell'operatore `<<`
   - Implementazione del `main`, `printGetScan` e `generateNumbrs`
 
 
