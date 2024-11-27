@@ -32,24 +32,19 @@ LidarDriver::LidarDriver(double a) : risoluzione_angolo_{a}
 }
 
 
-//new_scan()
-/*scrivo una funzione che mi riempia il buffer nei casi in cui:
-1) il vettore inserito abbia l'esatta dimensione del buffer
-2) il vettore abbia una dimensione minore e quindi lo riempia con zeri 
-3) il vettore ha più valori del buffer e quindi prende solo i primi valori
-   che riempiono il buffre  tagliando il restante
-*/
+
+// scrivi_buffer function used, in new_scan () function, for writing the vector in the buffer
 void LidarDriver:: scrivi_buffer(std::vector<double> sb){
  int size = sb.size();
 
- if (size == numero_letture_)                  //1)
+ if (size == numero_letture_)                  //1)case: vector size == scan size
       {
          for (int j=0; j<size;j++){
              buffer_[last][j]=sb[j];
          }
       }
 
- else if (size< numero_letture_)               //2)
+ else if (size< numero_letture_)               //2)case: vector size < scan size
       {
          for (int j=0; j<size;j++){
              buffer_[last][j]=sb[j];
@@ -59,7 +54,7 @@ void LidarDriver:: scrivi_buffer(std::vector<double> sb){
          }//inizializzo i valori restanti a 0
       }
       
- else                                          //3)
+ else                                          //3)case: vector size > scan size
       {
         for (int j=0; j<numero_letture_;j++){
              buffer_[last][j]=sb[j];
@@ -69,11 +64,10 @@ void LidarDriver:: scrivi_buffer(std::vector<double> sb){
 }
 
 
-//funzione new scan
+//new_scan()
 void LidarDriver::new_scan ( std::vector<double> ns) {
     
-  //******************************************se il buffer è vuoto o last coincide con first
-   if(isEmpty || last==first)
+   if(isEmpty || last==first)              //when the buffer is empty or first==last
    {
       scrivi_buffer(ns);
       last++;
@@ -85,8 +79,8 @@ void LidarDriver::new_scan ( std::vector<double> ns) {
       }
       
    }
-  //******************************************quando il buffer non è vuoto   
-   else
+     
+   else                                    //when the buffer in not empty
    {
        scrivi_buffer(ns);
        last++;
