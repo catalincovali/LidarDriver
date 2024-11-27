@@ -36,7 +36,7 @@ Inizializza il buffer
       first(-1), last(0) 
       {
        numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / 
-risoluzione_angolo_));
+risoluzione_angolo_))+1;
       }
 
 
