@@ -19,9 +19,16 @@ int main() {
   std::vector<double> n5 = generateNumbers(size, 5);
   std::vector<double> n6 = generateNumbers(size, 6);
 
+//------------------------------------------------------------
+//Test Driver1
+
   driver1.new_scan(n1);
   driver1.new_scan(n2);
   std::cout << "lettura: " << driver1 << "\n";
+
+  driver1.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
+  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distace(2.1) << "\n"; //output -> 3.0 
+
   printGetScan( driver1.get_scan() );
   driver1.clear_buffer();
 
@@ -30,12 +37,37 @@ int main() {
   driver1.new_scan(n3);
   printGetScan( driver1.get_scan() );
    
+  driver1.new_scan(n4);
+  driver1.new_scan(n5);
+  driver1.new_scan(n6);
+  printGetScan( driver1.get_scan() );
 
+  std::cout << "lettura: " << driver1 << "\n";
 
+//------------------------------------------------------------
+//Test Driver2
 
+  driver2.new_scan(n1);
+  driver2.new_scan(n2);
+  std::cout << "lettura: " << driver2 << "\n";
 
+  driver2.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
+  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distace(2.1) << "\n"; //output -> 3.0 
 
+  printGetScan( driver1.get_scan() );
+  driver2.clear_buffer();
 
+  driver2.new_scan(n1);
+  driver2.new_scan(n2);
+  driver2.new_scan(n3);
+  printGetScan( driver2.get_scan() );
+   
+  driver2.new_scan(n4);
+  driver2.new_scan(n5);
+  driver2.new_scan(n6);
+  printGetScan( driver2.get_scan() );
+
+  std::cout << "lettura: " << driver2 << "\n";
 
 
   return 0;
@@ -47,8 +79,6 @@ void printGetScan( std::vector<double> v ){
     std::cout << v.at(i) << ", ";
   std::cout << "\n";
 } 
-
-
 
 std::vector<double> generateNumbers (int size, int value) {
   std::vector<double> v(size);
