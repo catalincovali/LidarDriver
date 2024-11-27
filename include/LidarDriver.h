@@ -10,9 +10,8 @@ private:
 
 
 public:
-	double get_distance(double angle)
-
-
+	double get_distance(double angle);
+	int get_last();
 };
 
 std::ostream& operator<<(std::ostream& os, std::vector<std::vector<double>> v);
