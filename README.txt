@@ -15,5 +15,5 @@ Covali Catalin
 
 
 Gavrilovska Kristina
-  -
-  -
+  -implementazione del default constructor() e constructor( risoluzione_angolo_ )
+  -implementazione della funzione new_scan() con ausilio della funzione scrivi_buffer
