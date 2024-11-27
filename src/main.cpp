@@ -2,13 +2,13 @@
 #include <ostream>
 #include <vector>
 #include <random>
-
+#include "LidarDriver.h"
 std::vector<double> generateNumbers (int size, int value);
 void printGetScan( std::vector<double> v );
 
 int main() {
-/*
-  LidarDriver driver1();
+
+  LidarDriver driver1;
   LidarDriver driver2(0.2);
 
   int size = 100;
@@ -69,7 +69,7 @@ int main() {
 
   std::cout << "lettura: " << driver2 << "\n";
 
-*/
+
   return 0;
 }
 
