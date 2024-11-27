@@ -5,7 +5,7 @@
 #include "LidarDriver.h"
 
 
-//constructor()
+//default constructor()
 LidarDriver::LidarDriver()
 {
   isEmpty=true;

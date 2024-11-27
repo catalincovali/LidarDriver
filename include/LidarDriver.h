@@ -9,12 +9,12 @@
 class LidarDriver {
 private:
   std::vector<std::vector<double>> buffer_;
-  int first;
-  int last;
+  int first;  //first = -1 when isEmpty
+  int last;   //last refers to first empty space
 
-  const int BUFFER_DIM_= 4;
-  const double DEF_ANG_= 1.0;
-  const int ANGOLO_MAX_ = 180;
+  const int BUFFER_DIM_= 4;     //max scansioni
+  const double DEF_ANG_= 1.0;   //risoluzione_angolare_ di default
+  const int ANGOLO_MAX_ = 180;  
 
   int numero_letture_;
   double risoluzione_angolo_;
@@ -24,7 +24,7 @@ private:
   void scrivi_buffer(std::vector<double> sb);
 
 public:
-  //constructor()
+  //default constructor()
   LidarDriver();
   //constructor( risoluzione_angolo_ )
   LidarDriver(double a);
@@ -40,6 +40,7 @@ public:
   std::vector<double> get_last(void) {return buffer_.at(last-1);}
 };
 
+//overload<<
 std::ostream& operator<<(std::ostream& os, LidarDriver& v);
 
 #endif
