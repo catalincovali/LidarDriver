@@ -2,6 +2,7 @@
 #include <ostream>
 #include <vector>
 #include <random>
+#include <cmath>
 #include "LidarDriver.h"
 std::vector<double> generateNumbers (int size, int value);
 void printGetScan( std::vector<double> v );
