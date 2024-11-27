@@ -1,17 +1,18 @@
 Progetto intermedia di Programmazione - LidarDriver
 
 
-Bortolazzi
-  -
-  -
+Bortolazzi Luca
+  - Implementazione della funzione `get_distance`
+  - Implementazione dell'overload dell' operatore `<<`
+  - Implementazione del `main`, `printGetScan` e `generateNumbrs`
 
 
-Covali
+Covali Catalin
   - Implementazione della funzione `get_scan`
   - Implementazione della funzione `clear_buffer`
   - Implementazione del `main`, `printGetScan` e `generateNumbrs`
 
 
-Gavrilovska
+Gavrilovska Kristina
   -
   -
