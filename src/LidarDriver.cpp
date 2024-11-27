@@ -88,6 +88,7 @@ coincide con first
       scrivi_buffer(ns);
       last++;
       first++;
+      isEmpty=false;
       if(last==BUFFER_DIM_){ 
       last=0; 
       first=0;
