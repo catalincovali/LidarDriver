@@ -27,6 +27,7 @@ int main() {
   std::cout << "lettura: " << driver1 << "\n\n";
 
   driver1.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
+  std::cout << "lettura: " << driver1 << "\n\n";
   std::cout << "Lettura angolo = 2.1 : " << driver1.get_distance(2.1) << "\n\n"; //output -> 3.0 
 
   printGetScan( driver1.get_scan() );
@@ -52,9 +53,10 @@ int main() {
   std::cout << "lettura: " << driver2 << "\n\n";
 
   driver2.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
-  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distance(2.1) << "\n\n"; //output -> 3.0 
+  std::cout << "lettura: " << driver2 << "\n\n";
+  std::cout << "Lettura angolo = 2.1 : " << driver2.get_distance(2.1) << "\n\n";
 
-  printGetScan( driver1.get_scan() );
+  printGetScan( driver2.get_scan() );
   driver2.clear_buffer();
 
   driver2.new_scan(n1);
