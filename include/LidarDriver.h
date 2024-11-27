@@ -2,9 +2,9 @@
 #define LIDARDRIVER_H
 #include <iostream>
 #include <ostream>
-#include <stdexcept> //for std::out_of_range
-#include <cmath>
 #include <vector>
+#include <stdexcept>  //for std::out_of_range
+#include <cmath>      //for std::round
 
 class LidarDriver {
 private:
@@ -14,7 +14,7 @@ private:
 
   const int BUFFER_DIM_= 4;
   const double DEF_ANG_= 1.0;
-  const int ANGOLO_MAX_ = 10;
+  const int ANGOLO_MAX_ = 180;
 
   int numero_letture_;
   double risoluzione_angolo_;
