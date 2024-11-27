@@ -8,11 +8,10 @@
 LidarDriver::LidarDriver()
 {
   risoluzione_angolo_ = DEF_ANG_;  
-  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_));
+  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_))+1;
   buffer_ = std::vector<std::vector<double>>(BUFFER_DIM_, std::vector<double>(numero_letture_));
   first = -1;
   last = 0; 
-  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_))+1;
 }
 
 
@@ -24,12 +23,10 @@ LidarDriver::LidarDriver(double a) : risoluzione_angolo_{a}
   if(a<0 || a>1)  
     throw std::out_of_range(" la risoluzione dell'angolo non è valida");
 
-  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_));
+  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_))+1;
   buffer_ = std::vector<std::vector<double>>(BUFFER_DIM_, std::vector<double>(numero_letture_));
   first = -1;
   last = 0; 
-      
-  numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_/risoluzione_angolo_))+1;
 }
 
 
