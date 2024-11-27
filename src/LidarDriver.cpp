@@ -1,12 +1,14 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
+#include <cmath>
 #include "LidarDriver.h"
 
 
 //constructor()
 LidarDriver::LidarDriver()
 {
+  isEmpty=true;
   risoluzione_angolo_ = DEF_ANG_;  
   numero_letture_ = static_cast<int>(std::round(ANGOLO_MAX_ / risoluzione_angolo_))+1;
   buffer_ = std::vector<std::vector<double>>(BUFFER_DIM_, std::vector<double>(numero_letture_));
@@ -16,7 +18,7 @@ LidarDriver::LidarDriver()
 
 
 
-//constructor(angRes)
+//constructor( risoluzione_angolo_ )
 LidarDriver::LidarDriver(double a) : risoluzione_angolo_{a}
 {
   isEmpty=true;
