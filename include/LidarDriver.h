@@ -25,6 +25,7 @@ void scrivi_buffer(std::vector<double> sb);
 
 
 private:
+bool isEmpty;
 int first;//mi indica il primo posto del buffer libero per un nuovo scan
 int last;//mi indica lo scan più vecchio di tutti
 std::vector<std::vector<double>> buffer_;//creo il buffer di double
