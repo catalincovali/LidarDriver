@@ -11,7 +11,7 @@ int main() {
   LidarDriver driver1;
   LidarDriver driver2(0.2);
 
-  int size = 100;
+  int size = 5;
   std::vector<double> n1 = generateNumbers(size, 1);
   std::vector<double> n2 = generateNumbers(size*2, 2);
   std::vector<double> n3 = generateNumbers(size*2, 3);
@@ -24,10 +24,10 @@ int main() {
 
   driver1.new_scan(n1);
   driver1.new_scan(n2);
-  std::cout << "lettura: " << driver1 << "\n";
+  std::cout << "lettura: " << driver1 << "\n\n";
 
   driver1.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
-  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distace(2.1) << "\n"; //output -> 3.0 
+  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distance(2.1) << "\n\n"; //output -> 3.0 
 
   printGetScan( driver1.get_scan() );
   driver1.clear_buffer();
@@ -42,17 +42,17 @@ int main() {
   driver1.new_scan(n6);
   printGetScan( driver1.get_scan() );
 
-  std::cout << "lettura: " << driver1 << "\n";
+  std::cout << "lettura: " << driver1 << "\n\n";
 
 //------------------------------------------------------------
 //Test Driver2
 
   driver2.new_scan(n1);
   driver2.new_scan(n2);
-  std::cout << "lettura: " << driver2 << "\n";
+  std::cout << "lettura: " << driver2 << "\n\n";
 
   driver2.new_scan({1.0, 2.0, 3.0, 4.0, 5.0});
-  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distace(2.1) << "\n"; //output -> 3.0 
+  std::cout << "Lettura angolo = 2.1 : " << driver1.get_distance(2.1) << "\n\n"; //output -> 3.0 
 
   printGetScan( driver1.get_scan() );
   driver2.clear_buffer();
@@ -67,7 +67,7 @@ int main() {
   driver2.new_scan(n6);
   printGetScan( driver2.get_scan() );
 
-  std::cout << "lettura: " << driver2 << "\n";
+  std::cout << "lettura: " << driver2 << "\n\n";
 
 
   return 0;

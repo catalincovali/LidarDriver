@@ -13,7 +13,7 @@ private:
 
   const int BUFFER_DIM_=4;
   const double DEF_ANG_=1.0;
-  const int ANGOLO_MAX_ = 180;
+  const int ANGOLO_MAX_ = 10;
 
   int numero_letture_;
   double risoluzione_angolo_;
@@ -31,8 +31,12 @@ public:
   //clear_buffer()
   void clear_buffer();
 
+  double get_distance(double angle);
+	std::vector<double> get_last(void) {return buffer_.at(last-1);}
 
 };
+
+std::ostream& operator<<(std::ostream& os, LidarDriver& v);
 
 
 
