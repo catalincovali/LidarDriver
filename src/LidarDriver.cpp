@@ -35,7 +35,7 @@ double LidarDriver::get_distance(double angle){
 	
 	double tempIndex = angle/risoluzione_angolare;
 	int index = static_cast<int>( std::round(tempIndex) );
-	double lettura = v.at(this->last).at(index);
+	double lettura = v.at(last-1).at(index);
 	
 	return lettura;
 }
@@ -46,7 +46,7 @@ double LidarDriver::get_distance(double angle){
 std::ostream& operator<<(std::ostream& os, std::vector<std::vector<double>>& v){
 	os << "[";
 	for(int i=0; i < v.size(); i++){
-		os << v.at(v.get_last()).at(i);
+		os << v.at(v.get_last()-1).at(i);
 		if(i != v.size()-1) os << ", ";		
 	}
 	os << "]";
