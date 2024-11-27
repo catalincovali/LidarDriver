@@ -37,7 +37,7 @@ public:
   //get_distance()
   double get_distance(double angle);
   //Helper Function get_last()
-	std::vector<double> get_last(void) {return buffer_.at(last-1);}
+  std::vector<double> get_last(void) {return buffer_.at(last-1);}
 };
 
 std::ostream& operator<<(std::ostream& os, LidarDriver& v);
